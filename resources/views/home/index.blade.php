@@ -75,6 +75,52 @@
                 <h3 class="client-name">Mike Bagayas</h3>
             </div>
         </div>
+
+        <!-- About Our Partners Section -->
+  <div class="partners-section">
+    <h2 class="section-title">Our Trusted Partners</h2>
+    
+    <div class="partners-container">
+        
+        <!-- Partner 1 -->
+        <div class="partner-card">
+            <img src="images/epson-logo.png" alt="Epson Logo" class="partner-logo">
+            <div class="partner-info">
+                <h3 class="partner-name">Epson</h3>
+                <p class="partner-description">Epson is a global leader in imaging and printing solutions. Their cutting-edge technology powers our high-quality printing services, ensuring vibrant and reliable results for all our customers.</p>
+            </div>
+        </div>
+        
+        <!-- Partner 2 -->
+        <div class="partner-card">
+            <img src="images/canon-logo.png" alt="Canon Logo" class="partner-logo">
+            <div class="partner-info">
+                <h3 class="partner-name">Canon</h3>
+                <p class="partner-description">Canon provides advanced printing hardware that supports our commitment to excellence. Their innovative products help us deliver seamless and efficient services.</p>
+            </div>
+        </div>
+        
+        <!-- Partner 3 -->
+        <div class="partner-card">
+            <img src="images/hp-logo.png" alt="HP Logo" class="partner-logo">
+            <div class="partner-info">
+                <h3 class="partner-name">HP</h3>
+                <p class="partner-description">HP is a trusted name in printing technology. Their reliable equipment enhances our platform's ability to meet diverse customer needs with precision and speed.</p>
+            </div>
+        </div>
+        
+        <!-- Partner 4 -->
+        <div class="partner-card">
+            <img src="images/brother-logo.png" alt="Brother Logo" class="partner-logo">
+            <div class="partner-info">
+                <h3 class="partner-name">Brother</h3>
+                <p class="partner-description">Brother's durable and versatile printing solutions contribute to our goal of providing top-notch printing and design services to the community.</p>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
         
     </div> 
   </div>
@@ -134,6 +180,7 @@
         #text {
             margin-top: 1px; /* Additional spacing for the second H2 element */
         }
+      
     }
   </style>
 

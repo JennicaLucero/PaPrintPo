@@ -259,83 +259,137 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   }
   
-  /* Testimonials Section */
-.testimonials-section {
-    background-color: #f9fbfc;
-    padding: 60px 0;
+    /* Testimonials Section */
+  .testimonials-section {
+      background-color: #f9fbfc;
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    .testimonials-section .section-title {
+      font-size: 36px;
+      color: #003366;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+    
+    .testimonials-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0 30px;
+    }
+    
+    .testimonial-card {
+      background-color: white;
+      width: 300px;
+      padding: 25px;
+      /* margin: 20px; */
+      margin: 0 auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+    
+    .testimonial-card:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    
+    .testimonial-card:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    
+    .testimonial-card:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+    
+    .client-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      object-fit: cover;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .testimonial-text {
+      font-size: 16px;
+      color: #4A4A4A;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .client-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #003366;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+  .partners-section {
     text-align: center;
-  }
-  
-  .testimonials-section .section-title {
-    font-size: 36px;
-    color: #003366;
-    font-weight: 700;
-    margin-bottom: 40px;
-  }
-  
-  .testimonials-container {
+    padding: 40px;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.partners-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 0 30px;
-  }
-  
-  .testimonial-card {
-    background-color: white;
-    width: 300px;
-    padding: 25px;
-    /* margin: 20px; */
-    margin: 0 auto;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    position: relative;
+}
+
+.partner-card {
+    width: 250px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    animation: fadeInUp 1s forwards;
-  }
-  
-  .testimonial-card:nth-child(1) {
-    animation-delay: 0.2s;
-  }
-  
-  .testimonial-card:nth-child(2) {
-    animation-delay: 0.4s;
-  }
-  
-  .testimonial-card:nth-child(3) {
-    animation-delay: 0.6s;
-  }
-  
-  .client-photo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    object-fit: cover;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .testimonial-text {
-    font-size: 16px;
-    color: #4A4A4A;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-  
-  .client-name {
-    font-size: 18px;
-    font-weight: 600;
-    color: #003366;
-  }
-  
-  .testimonial-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  }
+}
+
+.partner-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.partner-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.partner-description {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.partner-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
   
   /* Animation */
   @keyframes fadeInUp {
