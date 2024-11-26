@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
 <script src="{{ asset('js/toggle-dropdown.js') }}"></script>
 
+<<<<<<< HEAD
 <div class="header flex justify-between items-center p-4 bg-white shadow-md">
     <a href="{{ route('home') }}" class="flex items-center">
         <img alt="PaPrint Po Logo" src="{{ asset('images/logo.png') }}" class="w-24 h-auto"/>
@@ -32,6 +33,38 @@
                 <div class="dropdown-items absolute hidden bg-white shadow-lg rounded-md w-48 py-2">
                     <a href="{{ route('profile.edit') }}" class="block px-4 py-2">Profile</a>
                     <a href="{{ route('logout') }}" class="block px-4 py-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</a>
+=======
+<div class="header">
+    <a href="{{ route('home') }}">
+    <img alt="PaPrint Po Logo" src="{{ asset('images/logo.png') }}" />
+    </a>
+    <div class="nav">
+    <a href="{{ route('home') }}"><i class="fas fa-home"></i> HOME</a>
+    <div class="dropdown">
+        <button class="toggle-btn"><i class="fas fa-print"></i> SERVICES</button>
+        <div class="dropdown-items">
+            <a href="#">Printing Services</a>
+            <a href="#">Design Assistance</a>
+            <a href="#">Buy Printing Supplies</a>
+        </div>
+    </div>
+    <!-- <a href="#"><i class="fas fa-upload"></i> UPLOAD</a>
+    <a href="#"><i class="fas fa-pencil-alt"></i> DESIGN ASSISTANCE</a> -->
+    <a href="{{ route('pricing') }}"><i class="fas fa-tags"></i> PRICING</a>
+    <a href="{{ route('contact') }}"><i class="fas fa-envelope"></i> CONTACT US</a>
+    <!-- <a href="#"><i class="fas fa-user"></i> PROFILE</a> -->
+    @guest
+            <!-- When user is not logged in -->
+            <a href="{{ route('register') }}"><i class="fas fa-user-plus"></i> SIGN UP</a>
+            <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> LOG IN</a>
+        @else
+            <!-- When user is logged in -->
+            <div class="dropdown" id="toggleDropdown">
+                <button class="toggle-btn"><i class="fas fa-user"></i> {{ Auth::user()->name }}</button>
+                <div class="dropdown-items">
+                    <a href="{{ route('profile.edit') }}">Profile</a>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</a>
+>>>>>>> 04a69b39424d9f2e776174a76d4bb0f7a67dcccb
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
@@ -39,6 +72,7 @@
             </div>
         @endguest
     </div>
+<<<<<<< HEAD
 </div>
 
 <!-- Tailwind CSS & Custom Styles -->
@@ -75,3 +109,6 @@
         nav.classList.toggle('active');
     });
 </script>
+=======
+</div>
+>>>>>>> 04a69b39424d9f2e776174a76d4bb0f7a67dcccb
