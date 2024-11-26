@@ -126,6 +126,58 @@
   </div>
 
   <style>
+    
+    .partners-section {
+      text-align: center;
+      padding: 40px;
+  }
+  
+  .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+  }
+  
+  .partners-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+  }
+  
+  .partner-card {
+      width: 250px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+  }
+  
+  .partner-logo {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%; /* Circular images */
+      margin-bottom: 15px;
+  }
+  
+  .partner-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 10px;
+  }
+  
+  .partner-description {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.5;
+  }
+
+  .partner-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+  
     /* Mobile Responsive Styles */
     @media (max-width: 768px) {
         .main-content h1 {
