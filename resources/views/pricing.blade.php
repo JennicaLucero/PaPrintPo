@@ -10,7 +10,7 @@
 <body>
 <div class="container mx-auto max-w-screen-lg px-4 py-12">
         <div class="container mx-auto py-12">
-            ->
+            
             <div class="text-center mb-10">
                 <h1 class="text-4xl font-bold text-gray-900">Our Printing Pricing</h1>
                 <p class="text-lg text-gray-600 mt-4">We offer flexible pricing to help you get the most out of our services.</p>
@@ -18,7 +18,7 @@
 
           
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                <
+                
                 <div class="bg-white shadow-lg rounded-lg p-6">
                     <h2 class="text-2xl font-semibold text-gray-800 mb-4">Document Printing</h2>
                     <p class="text-3xl font-bold text-indigo-600 mb-6">Php 1 - 9<span class="text-lg">/Page</span></p>
