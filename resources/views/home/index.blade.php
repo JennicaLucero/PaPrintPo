@@ -7,8 +7,8 @@
   <div class="container">
     <div class="main-content">
       <h1>Your Go-To Printing</h1>
-      <h2>and Design Service</h2>
-      <h2 id="text">in LAOAG - BATAC</h2>
+      <h2 class="separated-heading">and Design Service</h2>
+      <h2 class="separated-heading" id="text">in LAOAG - BATAC</h2>
       <p>Delivered to your doorstep or ready for pick-up!</p>
       <a class="button" href="#services">GET STARTED</a>
 
@@ -77,6 +77,65 @@
         </div>
         
     </div> 
-</div>
-@include('include.footer')
+  </div>
+
+  <style>
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+        .main-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .main-content h2 {
+            font-size: 1.8rem;
+        }
+
+        .main-content p {
+            font-size: 1rem;
+        }
+
+        .button {
+            font-size: 1rem;
+            padding: 10px 20px;
+        }
+
+        .services-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service-card {
+            width: 90%;
+            margin-bottom: 20px;
+        }
+
+        .testimonials-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .testimonial-card {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+
+        /* Adjust icon for mobile view */
+        .icons img {
+            width: 80%;
+        }
+
+        /* Ensure there's enough space between the H2 elements in mobile view */
+        .separated-heading {
+            margin-top: 1px; /* Adds spacing on top */
+            margin-bottom: 1px; /* Adds spacing below */
+        }
+        
+        /* More specific styling for the second H2 to prevent collision */
+        #text {
+            margin-top: 1px; /* Additional spacing for the second H2 element */
+        }
+    }
+  </style>
+
+  @include('include.footer')
 @endsection
