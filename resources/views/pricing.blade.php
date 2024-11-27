@@ -38,13 +38,14 @@
                     <li>✔ High-Quality Photo Printing</li>
                     <li>✔ Glossy or Matte Finish</li>
                     <li>✔ Custom Sizes Available</li>
+                    <li>✔ High Quality Edit</li>
                 </ul>
                 <a href="{{ route('home') }}#services" class="w-full block text-center bg-indigo-600 text-white py-2 rounded-md font-medium hover:bg-indigo-700 transition">Get Started</a>
             </div>
 
             <!-- Design & Custom Prints -->
             <div class="pricing-card bg-white shadow-lg rounded-lg p-6 border-4 border-transparent">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Design & Custom Prints</h2>
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Design & Custom Prints</h2>
                 <p class="text-3xl font-bold text-indigo-600 mb-6">Php 5 - 300<span class="text-lg">/Piece</span></p>
                 <ul class="text-gray-600 mb-6 space-y-2">
                     <li>✔ Business Cards</li>
