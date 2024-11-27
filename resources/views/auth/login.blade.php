@@ -38,6 +38,10 @@
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
+            
+            <a href="{{ route('home') }}" class="underline px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300 rounded-md">
+                {{ __('Back to Home') }}
+            </a>
 
             <x-primary-button class="ms-3">
                 {{ __('Log in') }}

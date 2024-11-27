@@ -9,6 +9,9 @@ use App\Http\Controllers\Home;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\PricingController;
 
+use App\Http\Controllers\PrintingSuppliesController;
+use App\Http\Controllers\CartController;
+
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::get('/dashboard', function () {
@@ -38,3 +41,11 @@ Route::post('/contact', function (\Illuminate\Http\Request $request) {
     // Handle form submission logic here
     return redirect()->route('contact')->with('success', 'Thank you for reaching out!');
 })->name('contact.submit');
+
+Route::get('/buy-printing-supplies', [PrintingSuppliesController::class, 'index'])->name('buy-printing-supplies');
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index')->middleware('auth');
+Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add')->middleware('auth');
+Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout')->middleware('auth');
+Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::put('/cart/{id}', [CartController::class, 'update'])->name('cart.update');

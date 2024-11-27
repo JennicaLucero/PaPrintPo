@@ -58,6 +58,11 @@
                 {{ __('Already registered?') }}
             </a>
 
+            <!-- Back to Home Button -->
+            <a href="{{ route('home') }}" class="underline px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300 rounded-md">
+                {{ __('Back to Home') }}
+            </a>
+
             <x-primary-button class="ms-4">
                 {{ __('Register') }}
             </x-primary-button>

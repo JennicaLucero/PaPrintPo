@@ -25,21 +25,28 @@
             <img src="images/printer.png" alt="Printing Services Image" />
             <h3>Printing Services</h3>
             <p>Upload your files, choose your print settings (size, color, etc.), and get high quality prints for school, work, or personal use.</p>
-            <a href="upload.html" class="card-link">Go to Printing Services &rarr;</a>
+            <a href="{{ route('home') }}" class="card-link">Go to Printing Services &rarr;</a>
           </div>
           
           <div class="service-card">
             <img src="images/design.png" alt="Design Assistance Image" />
             <h3>Design Assistance</h3>
             <p>Need help with layout or design? Our team is here to assist with creating professional documents, brochures, invitations, and more.</p>
-            <a href="design-assistance.html" class="card-link">Go to Design Assistance &rarr;</a>
+            <a href="{{ route('home') }}" class="card-link">Go to Design Assistance &rarr;</a>
           </div>
       
+          <div class="service-card">
+            <img src="images/ink.png" alt="Delivery or Pickup Image" />
+            <h3>Buy Printing Supplies</h3>
+            <p>Purchase essential printing supplies such as paper, ink, and toner directly from our platform. Have them delivered to your doorstep anywhere from Laoag to Batac, or conveniently pick them up when it suits you.</p>
+            <a href="{{ route('buy-printing-supplies') }}" class="card-link">Go to Printing Supplies &rarr;</a>
+          </div>
+            
           <div class="service-card">
             <img src="images/delivery.png" alt="Delivery or Pickup Image" />
             <h3>Delivery or Pickup</h3>
             <p>Choose to have your prints delivered to your location within Laoag to Batac or pick them up at your convenience.</p>
-            <a href="pricing.html" class="card-link">Go to Pricing &rarr;</a>
+            <a href="{{ route('pricing') }}" class="card-link">Go to Pricing &rarr;</a>
           </div>
           
         </div>

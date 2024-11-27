@@ -26,6 +26,13 @@
                 </header>
             @endif
 
+            <div class="container mx-auto">
+        @if(session('success'))
+        <div class="bg-green-500 text-white py-2 px-4 mb-4">
+            {{ session('success') }}
+        </div>
+        @endif
+
             <!-- Page Content -->
             <main>
                 {{ $slot }}
