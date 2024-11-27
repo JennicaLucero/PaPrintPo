@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+    
     <!-- JavaScript for Toggle -->
     <script src="{{ asset('js/toggle-dropdown.js') }}"></script>
 </head>
