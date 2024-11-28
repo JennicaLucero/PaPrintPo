@@ -115,8 +115,8 @@
     }
 
     .add-to-cart-button:hover {
-        /* Darker shade of the button color */
-        transform: scale(1.05);
+        background-color: indigo;
+        transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     /* Hover effect for cards */
