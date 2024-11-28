@@ -35,9 +35,9 @@
       <div class="footer-social">
         <h4>Follow Us</h4>
         <div class="social-icons">
-            <a href="#" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/share/1ETpSa1Y9H/?mibextid=LQQJ4d" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
             <a href="#" aria-label="Twitter" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/kyyy_clemente/" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
             <a href="#" aria-label="LinkedIn" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </div>
