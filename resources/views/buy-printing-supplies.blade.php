@@ -115,7 +115,7 @@
     }
 
     .add-to-cart-button:hover {
-        background-color: light blue; /* Darker shade of the button color */
+        /* Darker shade of the button color */
         transform: scale(1.05);
     }
 
