@@ -111,12 +111,12 @@
         display: inline-block;
         font: medium;
         font-weight: bold;
-        transition: background-color 0.3s ease, transform 0.3s ease;
+        transition: background-color 0.0s ease, transform 0.3s ease;
     }
 
     .add-to-cart-button:hover {
-        background-color: indigo;
-        transition: background-color 0.3s ease, transform 0.3s ease;
+        background-color: light blue; /* Darker shade of the button color */
+        transform: scale(1.05);
     }
 
     /* Hover effect for cards */
