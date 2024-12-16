@@ -1,6 +1,6 @@
 @extends('layouts.web')
 
-@section('title', 'Pricing')
+@section('title', 'Printing Supplies')
 
 @section('content')
 @include('include.header')

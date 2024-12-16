@@ -36,7 +36,6 @@
                     <i class="fas fa-print"></i>SERVICES</button>
                     <div class="dropdown-items" id="servicesDropdownItems">
                         <a href="{{ route('printing-services') }}"><i class="fas fa-print"></i> Printing Services</a>
-                        <a href="#"><i class="fas fa-pencil-alt"></i> Design Assistance</a>
                         <a href="{{ route('buy-printing-supplies') }}"><i class="fas fa-box"></i> Buy Printing Supplies</a>
                     </div>
             </div>
@@ -69,7 +68,7 @@
                         $cartCount = App\Models\UserCart::where('user_id', Auth::id())->count();
                     @endphp
                     @if ($cartCount > 0)
-                        <span class="absolute top-5 right-25 bg-red-500 text-white text-xs rounded-full px-2 ml-3">
+                        <span>
                             {{ $cartCount }}
                         </span>
                     @endif

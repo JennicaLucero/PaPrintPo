@@ -4,6 +4,7 @@
 
 @section('content')
   @include('include.header')
+
   <div class="container">
     <div class="main-content">
       <h1>Your Go-To Printing</h1>

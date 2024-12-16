@@ -55,6 +55,6 @@ class ServicesController extends Controller
         $service->comments = $request->comments;
         $service->save();
 
-        return redirect()->back()->with('success', 'Documents submitted successfully!');
+        return redirect()->route('submissions')->with('success', 'Documents submitted successfully!');
     }
 }
