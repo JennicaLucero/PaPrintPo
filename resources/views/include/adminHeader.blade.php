@@ -18,7 +18,7 @@
 <body>
     <div class="header">
         <!-- Logo stays on the left -->
-        <a href="{{ route('home') }}">
+        <a href="{{ route('admin.dashboard') }}">
             <img alt="PaPrint Po Logo" src="{{ asset('images/logo.png') }}" />
         </a>
 
@@ -28,21 +28,23 @@
         </div>
 
         <div class="nav" id="navMenu">
-            <a href="{{ route('home') }}"><i class="fas fa-home"></i> HOME</a>
+            <a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> HOME</a>
             
             <!-- Services Dropdown, similar to Profile Dropdown -->
-            <div class="dropdown" id="toggleServicesDropdown">
+            <!-- <div class="dropdown" id="toggleServicesDropdown">
                 <button class="toggle-btn" >
                     <i class="fas fa-print"></i>SERVICES</button>
                     <div class="dropdown-items" id="servicesDropdownItems">
-                        <a href="{{ route('printing-services') }}"><i class="fas fa-print"></i> Printing Services</a>
+                        <a href="#"><i class="fas fa-print"></i> Printing Services</a>
                         <a href="#"><i class="fas fa-pencil-alt"></i> Design Assistance</a>
                         <a href="{{ route('buy-printing-supplies') }}"><i class="fas fa-box"></i> Buy Printing Supplies</a>
                     </div>
-            </div>
-            
-            <a href="{{ route('pricing') }}"><i class="fas fa-tags"></i> PRICING</a>
-            <a href="{{ route('contact') }}"><i class="fas fa-envelope"></i> CONTACT US</a>
+            </div> -->
+
+            <a href="{{ route('pricing') }}"><i class="fas fa-users"></i> USERS</a>
+            <a href="{{ route('pricing') }}"><i class="fas fa-file-alt"></i> ORDERS</a>
+            <a href="{{ route('admin.services') }}"><i class="fas fa-print"></i> SERVICES</a>
+            <a href="{{ route('contact') }}"><i class="fas fa-envelope"></i> MESSAGES</a>
 
             @guest
                 <!-- When user is not logged in -->
@@ -61,17 +63,6 @@
                     </div>
                 </div>
             @endguest
-
-            @auth
-                <a href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart"></i> 
-                    <!-- @if(session()->has('cart') && count(session('cart')) > 0)
-                        <span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-2">
-                            {{ count(session('cart')) }}
-                        </span>
-                    @endif -->
-                </a>
-                <a href="{{ route('submissions') }}"><i class="fas fa-folder"></i></a>
-            @endauth
         </div>
     </div>
 
@@ -102,129 +93,3 @@
             }
         });
     </script>
-
-    <!-- <style>
-        /* Header styles */
-        .header {
-            display: flex;
-            justify-content: space-between; /* Align logo and hamburger */
-            align-items: center;
-            padding: 10px;
-            position: relative;
-        }
-
-        /* Ensure the logo stays on the left */
-        .header a {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            margin-left: auto;
-        }
-
-        /* Mobile menu toggle styles */
-        /* Mobile menu toggle styles */
-@media (max-width: 768px) {
-    .nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        align-items: center; /* Center align items */
-    }
-
-    .nav.active {
-        display: flex;
-    }
-
-    .hamburger-menu {
-        display: block;
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%); /* Position the hamburger in the middle */
-    }
-
-    .hamburger-menu i {
-        font-size: 30px;
-        color: #333;
-    }
-
-    /* Align the nav items vertically and center them */
-    .nav a {
-        padding: 15px;
-        text-align: center;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px; /* Adjust font size for mobile */
-    }
-
-    .nav a i {
-        margin-right: 8px; /* Add space between icon and text */
-    }
-
-    .dropdown-items {
-        display: none;
-        text-align: center;
-        width: 230px; /* Set a fixed width or use auto to allow for content width */
-        min-width: 200px; /* Set a minimum width to prevent dropdown from becoming too narrow */
-    }
-
-    .dropdown-items.active {
-        display: block;
-    }
-
-    /* Ensure dropdown button is properly aligned */
-    .dropdown .toggle-btn {
-        width: 100%;
-        text-align: center;
-        padding: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-}
-
-        /* Desktop: Dropdown shows on hover */
-        @media (min-width: 769px) {
-            .hamburger-menu {
-                display: none;
-            }
-
-            .dropdown {
-                position: relative;
-            }
-
-            .dropdown-items {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                background-color: white;
-                border: 1px solid #ddd;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                width: 200px;
-                z-index: 100;
-            }
-
-            .dropdown:hover .dropdown-items {
-                display: block;
-            }
-
-            .dropdown-items a {
-                padding: 10px;
-                text-decoration: none;
-                color: #333;
-            }
-
-            .dropdown-items a:hover {
-                background-color: #f4f4f4;
-            }
-        }
-    </style> -->
-

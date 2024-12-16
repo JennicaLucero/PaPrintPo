@@ -36,7 +36,18 @@
                     <textarea name="message" id="message" rows="5" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring-blue-500" required></textarea>
                 </div>
                 <div class="text-right">
-                    <button type="submit" class="px-4 py-2 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600">Send</button>
+                    @if(auth()->check())
+                            <!-- Show "Add to Cart" button if user is authenticated -->
+                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Send
+                            </button>
+                        @else
+                            <!-- Show "Login" button if user is not authenticated -->
+                            <a href="{{ route('login') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Log In to Send
+                            </a>
+                        @endif
+                    <!-- <button type="submit" class="px-4 py-2 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600">Send</button> -->
                 </div>
             </form>
         </div>

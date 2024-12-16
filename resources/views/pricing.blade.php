@@ -27,7 +27,7 @@
                     <li>✔ Double-sided (Duplex)</li>
                     <li>✔ Basic Binding (Stapling)</li>
                 </ul>
-                <a href="{{ route('home') }}#services" class="w-full block text-center bg-indigo-600 text-white py-2 rounded-md font-medium hover:bg-indigo-700 transition">Get Started</a>
+                <a href="{{ route('printing-services') }}" class="w-full block text-center bg-indigo-600 text-white py-2 rounded-md font-medium hover:bg-indigo-700 transition">Get Started</a>
             </div>
 
             <!-- Photo Printing (Default Active) -->
@@ -40,7 +40,7 @@
                     <li>✔ Custom Sizes Available</li>
                     <li>✔ High Quality Edit</li>
                 </ul>
-                <a href="{{ route('home') }}#services" class="w-full block text-center bg-indigo-600 text-white py-2 rounded-md font-medium hover:bg-indigo-700 transition">Get Started</a>
+                <a href="{{ route('printing-services') }}" class="w-full block text-center bg-indigo-600 text-white py-2 rounded-md font-medium hover:bg-indigo-700 transition">Get Started</a>
             </div>
 
             <!-- Design & Custom Prints -->
@@ -53,7 +53,7 @@
                     <li>✔ Posters (Small, Medium, Large)</li>
                     <li>✔ Invitations (Weddings, Events)</li>
                 </ul>
-                <a href="{{ route('home') }}#services" class="w-full block text-center bg-indigo-600 text-white py-2 rounded-md font-medium hover:bg-indigo-700 transition">Get Started</a>
+                <a href="{{ route('printing-services') }}" class="w-full block text-center bg-indigo-600 text-white py-2 rounded-md font-medium hover:bg-indigo-700 transition">Get Started</a>
             </div>
         </div>
     </div>

@@ -24,5 +24,4 @@
 <body>
     @yield('content') <!-- Content section of each page -->
 </body>
-
 </html>

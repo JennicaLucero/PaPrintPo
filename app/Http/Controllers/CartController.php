@@ -2,83 +2,73 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PrintingSupply;
+use App\Models\UserCart;
 use Illuminate\Http\Request;
-use App\Models\PrintingSupply; // Ensure this model exists
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+    // Show the cart page
     public function index()
     {
-        $cart = session()->get('cart', []);
-        return view('cart.index', compact('cart'));
+        $cartItems = UserCart::with('supply')->where('user_id', Auth::id())->get();
+
+        return view('cart.index', compact('cartItems'));
     }
 
-    public function add(Request $request, $id)
+    // Add supply to cart
+    public function addToCart(Request $request, $supplyId)
     {
-        $supply = PrintingSupply::findOrFail($id);
+        $supply = PrintingSupply::findOrFail($supplyId);
 
-        $cart = session()->get('cart', []);
+        // Check if supply is already in the cart
+        $cartItem = UserCart::where('user_id', Auth::id())->where('supply_id', $supplyId)->first();
 
-        // Check if the item is already in the cart and update the quantity, or add a new item
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
+        if ($cartItem) {
+            // If it's already in the cart, update the quantity
+            $cartItem->quantity += $request->quantity;
+            $cartItem->save();
         } else {
-            $cart[$id] = [
-                'name' => $supply->name,
-                'price' => $supply->price,
+            // Otherwise, create a new cart item
+            UserCart::create([
+                'user_id' => Auth::id(),
+                'supply_id' => $supplyId,
                 'quantity' => 1,
-                'image' => $supply->image, // Add the image URL or path to the cart item
-            ];
+            ]);
         }
 
-        // Store the updated cart in the session
-        session()->put('cart', $cart);
-
-        // Redirect to the cart page with a success message
-        return redirect()->route('cart.index')->with('success', 'Item added to cart!');
+        return redirect()->route('cart.index')->with('success', 'PrintingSupply added to cart.');
     }
 
-    public function checkout()
+    // Remove supply from cart
+    public function removeFromCart($cartItemId)
     {
-        // Clear the cart session after checkout
-        session()->forget('cart');
-        
-        // Redirect to the cart page with a success message
-        return redirect()->route('cart.index')->with('success', 'Checkout successful!');
-    }
-    public function removeFromCart($id)
-{
-    // Assuming $cart is stored in session or a similar mechanism
-    $cart = session()->get('cart', []);
+        $cartItem = UserCart::findOrFail($cartItemId);
+        $cartItem->delete();
 
-    // Remove the item from the cart
-    if (isset($cart[$id])) {
-        unset($cart[$id]);
-        session()->put('cart', $cart);
+        return redirect()->route('cart.index')->with('success', 'PrintingSupply removed from cart.');
     }
 
-    return redirect()->route('cart.index');  // Redirect back to the cart page
-}
-public function update(Request $request, $id)
-{
-    // Get the cart from the session
-    $cart = Session::get('cart', []);
+    public function update(Request $request, $cartId)
+    {
+        // Validate the quantity (must be at least 1)
+        $request->validate([
+            'quantity' => 'required|integer|min:1',
+        ]);
 
-    // Check if the item exists in the cart
-    if (isset($cart[$id])) {
-        // Update the quantity of the item
-        $quantity = $request->input('quantity', 1);  // Default to 1 if no quantity is provided
-        $cart[$id]['quantity'] = $quantity;
+        // Find the cart item by its ID and update the quantity
+        $cartItem = UserCart::where('id', $cartId)
+                            ->where('user_id', Auth::id()) // Ensure the user is the one updating
+                            ->first();
 
-        // Recalculate the total for that item
-        $cart[$id]['total'] = $cart[$id]['price'] * $quantity;
+        if ($cartItem) {
+            $cartItem->quantity = $request->quantity;
+            $cartItem->save(); // Save the updated cart item
+        }
 
-        // Save the updated cart back to the session
-        Session::put('cart', $cart);
+        // Redirect back to the cart page
+        return redirect()->route('cart.index')->with('success', 'Cart updated successfully.');
     }
 
-    // Redirect back to the cart page with a success message
-    return redirect()->route('cart.index')->with('success', 'Cart updated successfully!');
-}
 }

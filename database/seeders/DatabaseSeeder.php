@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB; // Add this line to import DB
+use App\Models\Service;
+use App\Models\Order;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,9 +18,22 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        
+        DB::table('sessions')->truncate();
+        DB::table('users')->truncate();
+    
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+        $this->call(PrintingSuppliesSeeder::class);
+
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            // 'name' => 'Test User',
+            // 'email' => 'test@example.com',
+            'name' => 'Admin',
+            'email' => 'admin@mail.com',
+            'usertype' => 'admin',
+            'password' => 'password'
         ]);
     }
 }

@@ -17,7 +17,7 @@
 
             <!-- Show Add to Cart only for authenticated users -->
             @auth
-             <form action="{{ route('cart.add', $supply->id) }}" method="POST">
+            <form action="{{ route('cart.add', ['supplyId' => $supply->id]) }}" method="POST">
               @csrf
               <button type="submit" class="add-to-cart-button">
                 Add to Cart
@@ -35,96 +35,6 @@
         @endforeach
     </div>
 </div>
-
-<style>
-    /* Container styling */
-    .pricing-section {
-        text-align: center;
-        padding: 40px;
-    }
-
-    .section-title {
-        font-size: 2rem;
-        margin-bottom: 20px;
-        font-weight: bold;
-        color: #333;
-    }
-
-    /* Grid container for the items */
-    .supplies-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    /* Card for each supply */
-    .supply-card {
-        width: 250px;
-        background-color: #f9f9f9;
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    /* Image styling */
-    .supply-image {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 8px;
-        margin-bottom: 15px;
-    }
-
-    /* Supply name and description */
-    .supply-name {
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-top: 10px;
-    }
-
-    .supply-description {
-        font-size: 0.9rem;
-        color: #555;
-        line-height: 1.5;
-    }
-
-    /* Price styling */
-    .supply-price {
-        font-size: 1.1rem;
-        font-weight: bold;
-        color: indigo; /* Green for price */
-        margin-top: 10px;
-    }
-
-    /* Button styling */
-    .add-to-cart-button {
-        background-color:indigo; /* Header color */
-        color: white;
-        padding: 10px 20px;
-        border-radius: 5px;
-        margin-top: 15px;
-        cursor: pointer;
-        text-align: center;
-        display: inline-block;
-        font: medium;
-        font-weight: bold;
-        transition: background-color 0.0s ease, transform 0.3s ease;
-    }
-
-    .add-to-cart-button:hover {
-        background-color: light blue; /* Darker shade of the button color */
-        transform: scale(1.05);
-    }
-
-    /* Hover effect for cards */
-    .supply-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    }
-</style>
 
 @include('include.footer')
 
