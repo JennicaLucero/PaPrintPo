@@ -51,6 +51,7 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/cart/add/{supplyId}', [CartController::class, 'addToCart'])->name('cart.add');
     Route::delete('/cart/remove/{cartItemId}', [CartController::class, 'removeFromCart'])->name('cart.remove');
     Route::put('/update/{cartId}', [CartController::class, 'update'])->name('cart.update');
+
 });
 
 Route::middleware(['auth'])->group(function() {

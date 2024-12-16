@@ -23,7 +23,7 @@
 
         @foreach($groupedSubmissions as $status => $group)
             <div class="status-group">
-                <h2 class="status-title font-bold text-black-500 text-lg mb-4">Status: {{ $status }}</h2>
+                <h2 class="status-title font-bold text-black-500 text-lg mb-4 mt-4">Status: {{ $status }}</h2>
                 <div class="cart-items-container">
                     @foreach($group as $submission)
                         <div class="cart-item-card">
@@ -31,7 +31,6 @@
                             <p class="cart-item-total">Number of Copies: {{ $submission->quantity }}</p>
                             <!-- <p class="cart-item-total">Instructions: {{ $submission->comments }}</p> -->
                             <p class="cart-item-price">Price: ₱{{ number_format($submission->price, 2) }}</p>
-                            <p>Clickable file name for download?</p>
 
                             @if($submission->status === "Waiting for Approval")
                                 <div class="button-container">

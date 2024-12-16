@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\PrintingSupply;
 use App\Models\UserCart;
+use App\Models\Order; // Assuming you have an Order model
+use App\Models\OrderItem; // Assuming you have an OrderItem model
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -50,6 +53,7 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success', 'PrintingSupply removed from cart.');
     }
 
+    // Update cart item quantity
     public function update(Request $request, $cartId)
     {
         // Validate the quantity (must be at least 1)
@@ -70,5 +74,4 @@ class CartController extends Controller
         // Redirect back to the cart page
         return redirect()->route('cart.index')->with('success', 'Cart updated successfully.');
     }
-
 }

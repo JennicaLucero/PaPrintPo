@@ -9,7 +9,7 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'service_id', 'status', 'total_price'];
+    protected $fillable = ['user_id', 'status', 'total_price'];
 
     // Relationship with users
     public function user()
@@ -17,9 +17,9 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    // Relationship with services
-    public function service()
+    // Relationship: An order has many order items
+    public function orderItems()
     {
-        return $this->belongsTo(Service::class);
+        return $this->hasMany(OrderItem::class);
     }
 }

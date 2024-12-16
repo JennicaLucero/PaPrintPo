@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('document_name');
             $table->string('service_type');
-            $table->string('file');
+            $table->string('files');
             $table->integer('quantity');
             $table->text('comments')->nullable();
             $table->decimal('price', 10, 2)->nullable();

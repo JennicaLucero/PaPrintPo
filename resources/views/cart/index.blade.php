@@ -47,6 +47,10 @@
             <a href="{{ route('buy-printing-supplies') }}" class="back-button">
                 Back 
             </a>
+            <form action="{{ route('cart.checkout') }}" method="POST">
+                @csrf
+                <button type="submit" class="checkout-button">Checkout</button>
+            </form>
         </div>
     @endif
 </div>

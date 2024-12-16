@@ -18,36 +18,43 @@ class ServicesController extends Controller
         $validated = $request->validate([
             'document_name' => 'required|string|max:255',
             'service_type' => 'required|string',
-            'file' => 'required|file|mimes:jpg,jpeg,png,pdf,docx|max:100000',
+            'files.*' => 'required|file|mimes:jpg,jpeg,png,pdf,docx|max:100000', // Allow multiple files
             'quantity' => 'required|integer',
             'comments' => 'nullable|string',
         ]);
 
-        // Get the uploaded file
-        $file = $request->file('file');
+        // Get the uploaded files
+        $files = $request->file('files'); // Changed to 'files'
 
-        // Get the document name and file extension
-        $documentName = $request->document_name;
-        $fileExtension = $file->getClientOriginalExtension();
+        // Initialize an array to hold file paths
+        $filePaths = [];
 
-        // Generate the custom file name (document_name.extension)
-        $fileName = $documentName . '.' . $fileExtension;
 
-        // Store the file with the custom name in the 'uploads' directory (using the 'public' disk)
-        $filePath = $file->storeAs('uploads', $fileName, 'public');
+        foreach ($files as $file) {
+            
+            $documentName = $request->document_name;
+            $fileExtension = $file->getClientOriginalExtension();
 
-        // $filePath = $request->file('file')->store('uploads', 'public');
-        // $imagePath = file_exists(public_path($filePath)) ? $filePath : 'images/document.jpg';
+            // Generate a unique file name (document_name_timestamp.extension)
+            $fileName = $documentName . '' . time() . '' . uniqid() . '.' . $fileExtension;
 
+            // Store the file with the custom name in the 'uploads' directory (using the 'public' disk)
+            $filePath = $file->storeAs('uploads', $fileName, 'public');
+
+            // Add the file path to the array
+            $filePaths[] = $filePath;
+        }
+
+        // Create a new service record
         $service = new Service();
         $service->user_id = auth()->id();
         $service->document_name = $request->document_name;
         $service->service_type = $request->service_type;
-        $service->file = $filePath;
+        $service->files = json_encode($filePaths); // Store file paths as JSON
         $service->quantity = $request->quantity;
         $service->comments = $request->comments;
         $service->save();
 
-        return redirect()->back()->with('success', 'Document submitted successfully!');
+        return redirect()->back()->with('success', 'Documents submitted successfully!');
     }
 }
