@@ -42,7 +42,7 @@
             </div> -->
 
             <a href="{{ route('pricing') }}"><i class="fas fa-users"></i> USERS</a>
-            <a href="{{ route('pricing') }}"><i class="fas fa-file-alt"></i> ORDERS</a>
+            <a href="{{ route('admin.orders') }}"><i class="fas fa-file-alt"></i> ORDERS</a>
             <a href="{{ route('admin.services') }}"><i class="fas fa-print"></i> SERVICES</a>
             <a href="{{ route('contact') }}"><i class="fas fa-envelope"></i> MESSAGES</a>
 

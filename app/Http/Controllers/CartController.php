@@ -15,10 +15,25 @@ class CartController extends Controller
     // Show the cart page
     public function index()
     {
+        // Fetch cart items for the logged-in user
         $cartItems = UserCart::with('supply')->where('user_id', Auth::id())->get();
-
-        return view('cart.index', compact('cartItems'));
+    
+        // Fetch the most recent order for the logged-in user, including order items
+        $order = Order::with('orderItems')->where('user_id', Auth::id())->latest()->first();
+    
+        // Check if an order exists
+        if ($order) {
+            // You can now access the order's items using $order->orderItems
+            $orderItems = $order->orderItems;
+        } else {
+            // If no order exists, set $orderItems to an empty collection or array
+            $orderItems = collect();
+        }
+    
+        // Return the view with cart items and order items (if any)
+        return view('cart.index', compact('cartItems', 'order', 'orderItems'));
     }
+    
 
     // Add supply to cart
     public function addToCart(Request $request, $supplyId)
@@ -74,4 +89,5 @@ class CartController extends Controller
         // Redirect back to the cart page
         return redirect()->route('cart.index')->with('success', 'Cart updated successfully.');
     }
+
 }

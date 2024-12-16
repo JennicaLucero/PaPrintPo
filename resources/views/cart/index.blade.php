@@ -1,6 +1,6 @@
 @extends('layouts.web')
 
-@section('title', 'Your Cart')
+@section('title', 'Cart')
 
 @section('content')
 @include('include.header')
@@ -48,9 +48,19 @@
                 Back 
             </a>
 
+            <a href="{{ route('checkout') }}" class="checkout-button">
+                 Proceed to Checkout
+            </a>
+
         </div>
     @endif
 </div>
+
+
+
+
+
+
 
 @include('include.footer')
 @endsection

@@ -9,17 +9,29 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'status', 'total_price'];
+    protected $fillable = [
+        'user_id',
+        'name',
+        'email',
+        'phone',
+        'address',
+        'payment_method',
+        'items',
+        'total_price',
+        'status'
+    ];
 
-    // Relationship with users
+    protected $casts = [
+        'items' => 'array', // Store cart items as JSON
+    ];
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // Relationship: An order has many order items
+    // Define the relationship between Order and OrderItem
     public function orderItems()
     {
-        return $this->hasMany(OrderItem::class);
+        return $this->hasMany(OrderItem::class);  // One Order has many OrderItems
     }
 }

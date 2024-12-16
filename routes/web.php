@@ -13,6 +13,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PrintingSuppliesController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\SubmissionsController;
+use App\Http\Controllers\OrderController;
 
 use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\AdminServiceController;
@@ -51,7 +52,6 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/cart/add/{supplyId}', [CartController::class, 'addToCart'])->name('cart.add');
     Route::delete('/cart/remove/{cartItemId}', [CartController::class, 'removeFromCart'])->name('cart.remove');
     Route::put('/update/{cartId}', [CartController::class, 'update'])->name('cart.update');
-
 });
 
 Route::middleware(['auth'])->group(function() {
@@ -79,7 +79,19 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');
     Route::get('/admin/services', [AdminController::class, 'services'])->name('admin.services');
-    Route::get('/admin/orders', [AdminController::class, 'orders'])->name('admin.orders');
     Route::get('/admin/contact', [AdminController::class, 'contactMessages'])->name('admin.contact');
+    Route::get('/admin/orders', [OrderController::class, 'adminOrders'])->name('admin.orders');
+    Route::put('/admin/orders/{order}', [OrderController::class, 'update'])->name('admin.orders.update');
 });
+
+
+// Checkout routes
+Route::middleware(['auth'])->group(function () {
+    Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
+    Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('place.order');
+});
+
+
+
+
 
