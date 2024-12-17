@@ -55,19 +55,19 @@
                 <ul class="space-y-6 text-gray-600">
                     <li class="flex items-center">
                         <i class="fas fa-map-marker-alt text-blue-500 text-xl mr-3"></i>
-                        <span>1234 Street Name, City, Country</span>
+                        <span>Hernando, Laoag City, 2900 Ilocos Norte</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-phone text-blue-500 text-xl mr-3"></i>
-                        <span>+1 (123) 456-7890</span>
+                        <span>09754280499</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-envelope text-blue-500 text-xl mr-3"></i>
-                        <span>contact@example.com</span>
+                        <span>zeankyronclemente00@gmail.com</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-clock text-blue-500 text-xl mr-3"></i>
-                        <span>Mon-Fri, 9 AM - 6 PM</span>
+                        <span>Sun-Sat, 7 AM - 7 PM</span>
                     </li>
                 </ul>
             </div>

@@ -4,7 +4,7 @@
 
 @section('content')
   @include('include.header')
-  
+
   <div class="container mx-auto px-4 py-8 min-h-screen">
     <h1 class="text-3xl font-semibold text-center mb-6">Your Orders</h1>
 
@@ -43,6 +43,7 @@
         </div>
     @endif
   </div>
+</body>
 
   @include('include.footer')
 @endsection

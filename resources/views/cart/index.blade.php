@@ -48,19 +48,37 @@
                 Back 
             </a>
 
-            <a href="{{ route('checkout') }}" class="checkout-button">
-                 Proceed to Checkout
+            <a href="{{ route('checkout') }}" class="checkout-button"
+                onclick="trackCheckoutEvent()">
+                Proceed to Checkout
             </a>
 
         </div>
     @endif
 </div>
 
+<script>
+    function trackCheckoutEvent() {
+        // Collect cart item data
+        const cartItems = [
+            @foreach($cartItems as $cartItem)
+            {
+                item_id: "{{ $cartItem->supply->id }}",
+                item_name: "{{ $cartItem->supply->name }}",
+                price: {{ $cartItem->supply->price }},
+                quantity: {{ $cartItem->quantity }}
+            },
+            @endforeach
+        ];
 
-
-
-
-
+        // Send the event to Google Analytics
+        gtag('event', 'begin_checkout', {
+            currency: 'PHP', // Replace with your currency
+            value: {{ $cartItems->sum(fn($item) => $item->supply->price * $item->quantity) }}, // Total cart value
+            items: cartItems
+        });
+    }
+</script>
 
 @include('include.footer')
 @endsection

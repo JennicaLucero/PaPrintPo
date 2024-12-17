@@ -76,7 +76,9 @@
                     <!-- Conditional Button Logic -->
                     @if(auth()->check())
                         <!-- Show "Add to Cart" button if user is authenticated -->
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <button type="submit"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded add-to-cart-btn"
+                            data-event="add-to-cart">
                             Add to Cart
                         </button>
                     @else
@@ -90,6 +92,27 @@
         </div>
     </div>
 </div>
+
+<!-- Google Analytics Tracking Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Select the Add to Cart button
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Replace 'G-XXXXXXX' with your Google Analytics property ID
+                if (typeof gtag !== 'G-NWPP1HMLRG') {
+                    gtag('event', 'add_to_cart', {
+                        event_category: 'Printing',
+                        event_label: 'Printing Services Add to Cart',
+                        value: 1 // Optional, set a numerical value for the event
+                    });
+                }
+            });
+        });
+    });
+</script>
 
 @include('include.footer')
 @endsection

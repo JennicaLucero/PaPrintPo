@@ -17,9 +17,10 @@
 
             <!-- Show Add to Cart only for authenticated users -->
             @auth
-            <form action="{{ route('cart.add', ['supplyId' => $supply->id]) }}" method="POST">
+            <form action="{{ route('cart.add', ['supplyId' => $supply->id]) }}" method="POST" id="addToCartForm{{ $supply->id }}">
               @csrf
-              <button type="submit" class="add-to-cart-button">
+              <button type="submit" class="add-to-cart-button"
+                onclick="trackAddToCart('{{ $supply->id }}', '{{ $supply->name }}', {{ $supply->price }})">
                 Add to Cart
              </button>
             </form>
@@ -36,25 +37,25 @@
     </div>
 </div>
 
-@include('include.footer')
-
-@endsection
-
-@section('scripts')
 <script>
-    // Function to track add to cart event
-    function trackAddToCart(productId, productName, productPrice) {
+    function trackAddToCart(itemId, itemName, itemPrice) {
         gtag('event', 'add_to_cart', {
-            "items": [{
-                "id": productId,
-                "name": productName,
-                "price": productPrice,
-                "quantity": 1  // Assuming the quantity is 1 for each add to cart action
-            }]
+            currency: 'PHP', // Replace with your currency
+            value: itemPrice,
+            items: [
+                {
+                    item_id: itemId,
+                    item_name: itemName,
+                    quantity: 1 // Assuming the default quantity is 1
+                }
+            ]
         });
     }
 </script>
 
+@include('include.footer')
+
+@endsection
 
 
 

@@ -9,7 +9,7 @@
     <h1 class="section-title">Checkout</h1>
 
     <!-- User Information -->
-    <form action="{{ route('place.order') }}" method="POST">
+    <form action="{{ route('placeOrder') }}" method="POST">
         @csrf
         <div class="user-info">
             <h2>User Information</h2>

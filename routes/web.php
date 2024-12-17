@@ -89,14 +89,20 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 
 // Checkout routes
-Route::middleware(['auth'])->group(function () {
-    Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
-    Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('place.order');
-});Route::get('/orders', [OrderController::class, 'yourOrders'])->name('orders.index');
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
+//     Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('place.order');
+// });Route::get('/orders', [OrderController::class, 'yourOrders'])->name('orders.index');
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/orders', [OrderController::class, 'yourOrders'])->name('orders.index');
-});
+
+// Route::middleware(['auth'])->group(function () {
+Route::get('/orders', [OrderController::class, 'yourOrders'])->name('orders.index');
+Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
+Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('placeOrder');
+Route::get('/payment/success', [OrderController::class, 'paymentSuccess'])->name('payment.success');
+Route::get('/payment/failed', [OrderController::class, 'paymentFailed'])->name('payment.failed');
+// });
+
 
 
 
