@@ -14,7 +14,7 @@ use App\Http\Controllers\PrintingSuppliesController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\SubmissionsController;
 use App\Http\Controllers\OrderController;
-
+use App\Http\Controllers\FileCheckoutController;
 use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\AdminServiceController;
 
@@ -56,9 +56,12 @@ Route::middleware(['auth'])->group(function() {
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/submissions', [SubmissionsController::class, 'index'])->name('submissions');
-    Route::post('/submissions/{id}/approve', [SubmissionsController::class, 'approve'])->name('submissions.approve');
+    // Route::post('/submissions/{id}/approve', [SubmissionsController::class, 'approve'])->name('submissions.approve');
     Route::post('/submission/{id}/decline', [SubmissionsController::class, 'decline'])->name('submissions.decline');
 });
+
+Route::get('/fileCheckout/{id}', [FileCheckoutController::class, 'show'])->name('fileCheckout.show');
+Route::post('/fileCheckout/{id}', [FileCheckoutController::class, 'store'])->name('fileCheckout.store');
 
 // Admin service Management
 Route::middleware(['auth', 'admin'])->group(function () {

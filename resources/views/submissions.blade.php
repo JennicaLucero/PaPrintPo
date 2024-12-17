@@ -29,21 +29,22 @@
                         <div class="cart-item-card">
                             <h2 class="cart-item-name">{{ $submission->document_name }}</h2>
                             <p class="cart-item-total">Number of Copies: {{ $submission->quantity }}</p>
-                            <!-- <p class="cart-item-total">Instructions: {{ $submission->comments }}</p> -->
                             <p class="cart-item-price">Price: ₱{{ number_format($submission->price, 2) }}</p>
 
                             @if($submission->status === "Waiting for Approval")
                                 <div class="button-container">
-                                    <form action="{{ route('submissions.approve', $submission->id) }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="update-button">Approve</button>
-                                    </form>
+                                    <!-- Approve Button routes to the checkout page -->
+                                    <a href="{{ route('fileCheckout.show', ['id' => $submission->id]) }}" class="update-button">Approve</a>
+
+                                    <!-- Decline Button -->
                                     <form action="{{ route('submissions.decline', $submission->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('POST')
                                         <button type="submit" class="update-button">Decline</button>
                                     </form>
                                 </div>
+                            @elseif($submission->status === "Approved")
+                                <p class="mt-4 status-message text-black-500 font-bold">Your order is ready.</p>
                             @else
                                 <p class="mt-4 status-message text-black-500 font-bold">Waiting for price.</p>
                             @endif

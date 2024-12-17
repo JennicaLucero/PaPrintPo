@@ -44,6 +44,8 @@
                                     @csrf
                                     <button type="submit" class="update-button">Send for Approval</button>
                                 </form>
+                            @elseif($service->status === "Approved")
+                                <p class="mt-7 status-message text-black-500 font-bold text-base">Order is ready for pick-up or delivery.</p>
                             @else
                                 <p class="mt-7 status-message text-black-500 font-bold">Price has been set.</p>
                                 <p class="mt-2 status-message text-black-500 font-bold">Waiting for customer's approval.</p>

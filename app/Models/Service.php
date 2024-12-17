@@ -16,12 +16,13 @@ class Service extends Model
         'file',
         'quantity', 
         'comments',
-        'status'
+        'status',
+        'order_id'
     ];
 
     // Relationship with orders
-    public function orders()
-    {
-        return $this->hasMany(Order::class);
-    }
+    // public function orders()
+    // {
+    //     return $this->belongsto(FileOrder::class, 'order_id');
+    // }
 }

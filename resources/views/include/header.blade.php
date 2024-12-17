@@ -76,17 +76,18 @@
                 @endauth
   
                 </a>
-                <a href="{{ route('submissions') }}"><i class="fas fa-folder"></i></a>
+                <a href="{{ route('submissions') }}"><i class="fas fa-folder"></i>
                 @auth
                     @php
                         $waitingCount = App\Models\Service::where('status', 'Waiting for Approval')->count();
                     @endphp
                     @if ($waitingCount > 0)
-                        <span class="absolute top-5 right-9 bg-red-500 text-white text-xs rounded-full px-2">
+                        <span>
                             {{ $waitingCount }}
                         </span>
                     @endif
                 @endauth
+                </a>
             @endauth
         </div>
     </div>
