@@ -70,18 +70,62 @@
             </div>
         
             <div class="testimonial-card">
-                <img src="images/user3.jpg" alt="User 3" class="client-photo">
+                <img src="images/user4.jpg" alt="User 3" class="client-photo">
                 <p class="testimonial-text">"I always rely on PaPrint Po for my printing needs. Their service is fast and reliable every time."</p>
                 <h3 class="client-name">Zean Clemente</h3>
             </div>
         
             <div class="testimonial-card">
-                <img src="images/user4.jpg" alt="User 4" class="client-photo">
+                <img src="images/user3.jpg" alt="User 4" class="client-photo">
                 <p class="testimonial-text">"Very convenient service with friendly staff! I appreciate the attention to detail in their work."</p>
                 <h3 class="client-name">Mike Bagayas</h3>
             </div>
         </div>
     </div>
+
+    <!-- Meet the Team -->
+<div class="partners-section">
+        <h2 class="section-title">Meet the Team</h2>
+
+        <div class="partners-container">
+
+        <!-- Partner 1 -->
+        <div class="partner-card">
+            <img src="images/user2.png" alt="Epson Logo" class="partner-logo">
+            <div class="partner-info">
+                <h3 class="partner-name">Jennica Lucero</h3>
+                <p class="partner-description">Developer</p>
+            </div>
+        </div>
+
+        <!-- Partner 2 -->
+        <div class="partner-card">
+            <img src="images/user1.jpg" alt="Canon Logo" class="partner-logo">
+            <div class="partner-info">
+                <h3 class="partner-name">Eleina Bumanglag</h3>
+                <p class="partner-description">Developer</p>
+            </div>
+        </div>
+
+        <!-- Partner 3 -->
+        <div class="partner-card">
+            <img src="images/user4.jpg" alt="HP Logo" class="partner-logo">
+            <div class="partner-info">
+                <h3 class="partner-name">Zean Kyron Clemente</h3>
+                <p class="partner-description">Owner</p>
+            </div>
+        </div>
+
+        <!-- Partner 4 -->
+        <div class="partner-card">
+            <img src="images/user3.jpg" alt="Brother Logo" class="partner-logo">
+            <div class="partner-info">
+                <h3 class="partner-name">Mike Bagayas</h3>
+                <p class="partner-description">Developer</p>
+            </div>
+        </div>
+    </div>
+</div>
 
         <!-- About Our Partners Section -->
     <div class="partners-section">
