@@ -40,6 +40,21 @@
 
 @endsection
 
+@section('scripts')
+<script>
+    // Function to track add to cart event
+    function trackAddToCart(productId, productName, productPrice) {
+        gtag('event', 'add_to_cart', {
+            "items": [{
+                "id": productId,
+                "name": productName,
+                "price": productPrice,
+                "quantity": 1  // Assuming the quantity is 1 for each add to cart action
+            }]
+        });
+    }
+</script>
+
 
 
 
