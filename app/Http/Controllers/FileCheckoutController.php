@@ -73,25 +73,4 @@ class FileCheckoutController extends Controller
         // Redirect back to the submissions page
         return redirect('/submissions')->with('success', 'Checkout successful and service approved!');
     }
-
-    
-    public function processCheckout(Request $request, $fileId)
-    {
-        // Get the user and submission details
-        $user = User::find($request->user_id);
-        $submission = Service::find($fileId);
-
-        // You can now process payment based on the selected method
-        // For example:
-        $paymentMethod = $request->payment_method;
-
-        // Handle payment logic (e.g., with a payment gateway)
-
-        // After successful payment, update the submission status or perform any other actions
-        $submission->status = 'Approved'; // Example status update
-        $submission->save();
-
-        // Redirect to a success page or back to the user's submissions
-        return redirect()->route('submissions')->with('success', 'Payment Successful');
-    }
 }
