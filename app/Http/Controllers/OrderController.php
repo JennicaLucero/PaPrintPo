@@ -54,7 +54,7 @@ class OrderController extends Controller
         // After the order is placed, clear the user's cart
         UserCart::where('user_id', Auth::id())->delete();
 
-        return redirect()->route('cart.index')->with('success', 'Order placed successfully!');
+        return redirect()->route('orders.index')->with('success', 'Order placed successfully!');
     }
 
     // Admin page to view all orders
@@ -72,6 +72,14 @@ class OrderController extends Controller
 
         return redirect()->route('admin.orders')->with('success', 'Order status updated successfully.');
     }
+// In OrderController.php
+public function yourOrders()
+{
+    $user = Auth::user();
+    $orders = Order::where('user_id', Auth::id())->latest()->get();
+
+    return view('orders.index', compact('user', 'orders'));
+}
 
     
    

@@ -89,9 +89,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
     Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('place.order');
+});Route::get('/orders', [OrderController::class, 'yourOrders'])->name('orders.index');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/orders', [OrderController::class, 'yourOrders'])->name('orders.index');
 });
-
-
 
 
 

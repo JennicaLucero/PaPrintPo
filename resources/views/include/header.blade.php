@@ -53,7 +53,7 @@
                     <button class="toggle-btn"><i class="fas fa-user"></i> {{ Auth::user()->name }}</button>
                     <div class="dropdown-items">
                         <a href="{{ route('profile.edit') }}"><i class="fas fa-user-circle"></i>Profile</a>
-                        <a href="{{route('home')  }}"><i class="fas fa-clipboard-list"></i>Orders</a>
+                        <a href="{{ route('orders.index') }}"><i class="fas fa-clipboard-list"></i> Orders</a>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class="fas fa-sign-out-alt"></i>Log Out</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
