@@ -79,7 +79,9 @@
                 <a href="{{ route('submissions') }}"><i class="fas fa-folder"></i>
                 @auth
                     @php
-                        $waitingCount = App\Models\Service::where('status', 'Waiting for Approval')->count();
+                    $waitingCount = App\Models\Service::where('status', 'Waiting for Approval')
+                                          ->where('user_id', auth()->id())
+                                          ->count();
                     @endphp
                     @if ($waitingCount > 0)
                         <span>
