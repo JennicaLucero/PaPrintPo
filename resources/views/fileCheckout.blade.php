@@ -74,8 +74,8 @@
                         <!-- <option>Select Payment</option> -->
                         <!-- Options -->
                         <option value="" disabled selected>Select your mode of payment</option>
-                        <option value="cash">Cash</option>
-                        <option value="gcash">GCash</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Gcash">GCash</option>
                     </select>
                 </div>
 </div>

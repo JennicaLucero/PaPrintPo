@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Service;
 use App\Models\User;
 use App\Models\FileCheckout;
+use GuzzleHttp\Client;
 
 class FileCheckoutController extends Controller
 {
@@ -52,6 +53,27 @@ class FileCheckoutController extends Controller
             'price' => 'required|numeric',
         ]);
 
+        if ($request->payment_type === 'Gcash') {
+            $client = new Client();
+            $response = $client->post('https://api.paymongo.com/v1/sources', [
+                'auth' => [config('services.paymongo.secret_key'), ''],
+                'json' => [
+                    'data' => [
+                        'attributes' => [
+                            'amount' => $request->price * 100,
+                            'currency' => 'PHP',
+                            'type' => 'gcash',
+                            'redirect' => [
+                                'success' => route('submissions'),
+                                'failed' => route('submissions'),
+                            ],
+                        ],
+                    ],
+                ],
+            ]);
+
+            $sourceData = json_decode($response->getBody(), true);
+
         // Create a new file checkout entry in the database
         $fileCheckout = new FileCheckout();
         $fileCheckout->user_id = Auth::id(); // Assuming user is authenticated
@@ -71,6 +93,28 @@ class FileCheckoutController extends Controller
         $service->save();
 
         // Redirect back to the submissions page
+        return redirect($sourceData['data']['attributes']['redirect']['checkout_url']);
+
+        } elseif ($request->payment_type === 'Cash') {
+            // Create a new file checkout entry in the database
+        $fileCheckout = new FileCheckout();
+        $fileCheckout->user_id = Auth::id(); // Assuming user is authenticated
+        $fileCheckout->service_id = $id; // The ID of the service being checked out
+        $fileCheckout->name = $request->user_name;
+        $fileCheckout->address = $request->address;
+        $fileCheckout->mobile_number = $request->phone;
+        $fileCheckout->delivery_type = $request->delivery_type;
+        $fileCheckout->payment_type = $request->payment_type;
+        $fileCheckout->price = $request->price;
+        $fileCheckout->order_status = 'Pending'; // Initial status before admin approves
+        $fileCheckout->save();
+
+        // Change the service status to 'Approved'
+        $service = Service::findOrFail($id);
+        $service->status = 'Approved'; // Change status to Approved
+        $service->save();
+
         return redirect('/submissions')->with('success', 'Checkout successful and service approved!');
+        }
     }
 }
