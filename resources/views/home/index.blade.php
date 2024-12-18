@@ -27,13 +27,6 @@
             <p>Upload your files, choose your print settings (size, color, etc.), and get high quality prints for school, work, or personal use.</p>
             <a href="{{ route('printing-services') }}" class="card-link">Go to Printing Services &rarr;</a>
           </div>
-          
-          <div class="service-card">
-            <img src="images/design.png" alt="Design Assistance Image" />
-            <h3>Design Assistance</h3>
-            <p>Need help with layout or design? Our team is here to assist with creating professional documents, brochures, invitations, and more.</p>
-            <a href="{{ route('home') }}" class="card-link">Go to Design Assistance &rarr;</a>
-          </div>
       
           <div class="service-card">
             <img src="images/ink.png" alt="Delivery or Pickup Image" />
